@@ -1218,6 +1218,8 @@ s32 init_level(void) {
         sound_banks_disable(2, 0x0330);
     }
 
+	lua_do_event("on_area_enter");
+
     return 1;
 }
 

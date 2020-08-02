@@ -602,6 +602,8 @@ void thread5_game_loop(UNUSED void *arg) {
 #endif
     save_file_load_all();
 
+	init_lua();
+
     set_vblank_handler(2, &gGameVblankHandler, &gGameVblankQueue, (OSMesg) 1);
 
     // point levelCommandAddr to the entry point into the level script data.

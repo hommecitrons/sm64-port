@@ -21,6 +21,7 @@
 #include "engine/geo_layout.h"
 #include "save_file.h"
 #include "level_table.h"
+#include "lua/lua.h"
 
 struct SpawnInfo gPlayerSpawnInfos[1];
 struct GraphNode *D_8033A160[0x100];
@@ -239,6 +240,8 @@ void load_area(s32 index) {
         load_obj_warp_nodes();
         geo_call_global_function_nodes(&gCurrentArea->unk04->node, GEO_CONTEXT_AREA_LOAD);
     }
+
+	lua_do_event("on_load_area");
 }
 
 void unload_area(void) {
